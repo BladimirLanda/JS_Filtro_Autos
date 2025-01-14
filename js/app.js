@@ -12,7 +12,7 @@ const resultados = document.querySelector('#resultado');
 const selectMax = document.querySelector("#select-maximo");
 
 //Parametros
-const currentYear = new Date().getFullYear(); //La empresa no vende autos menores a 2010
+const currentYear = new Date().getFullYear(); //La empresa no vende autos menores a 2011
 const minYear = currentYear - 14;
 
 //Objeto Campos
@@ -28,7 +28,7 @@ const datosBusqueda = {
 
 //Eventos
 document.addEventListener('DOMContentLoaded', () => {
-    mostrarAutos(autos); //Arreglo de la base de datos
+    mostrarAutos(autos); //Información de la Base de Datos
     establecerAños();
 });
 
@@ -129,7 +129,7 @@ function filtrarAuto() {
     .filter(auto => filtrarColor(auto));
 
     if(resultado.length) {
-        mostrarAutos(resultado)
+        mostrarAutos(resultado);
     } else {
         sinResultado();
     }
@@ -139,6 +139,7 @@ function filtrarAuto() {
 function filtrarMarca(auto) {
     const { marca } = datosBusqueda;
     if(marca) {
+        //Retorno de la sentencia
         return auto.marca === marca;
     }
     //El retorno del mismo elemento dentro de un .filter() es igual al valor de 'true'
